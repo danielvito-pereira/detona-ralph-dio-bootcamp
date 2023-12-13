@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-image: url("../images/wall.png");
+}
+.container .menu {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 90px;
+  width: 100%;
+  background-color: #000000;
+  color: #ffffff;
+  border-bottom: 5px solid #ffd700;
+}
+.container .menu .cont {
+  color: red;
+}
+.container .menu .menu-lives {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.container .menu .menu-time h2:nth-child(2),
+.container .menu .menu-score h2:nth-child(2) {
+  margin-top: 1rem;
+}
+.container .panel {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container .panel .squere {
+  height: 150px;
+  width: 150px;
+  border-top: 1px solid #000000;
+  background-color: rgb(0, 225, 255);
+}
+.container .panel .enemy {
+  background-image: url(../images/ralph.png);
+  background-size: cover;
+}/*# sourceMappingURL=main.css.map */
