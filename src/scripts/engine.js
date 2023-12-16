@@ -6,24 +6,31 @@ const state = {
     score: document.querySelector("#score"),
   },
   values:{
-    timerId : null,
     gameVelocity:1000,
     hitPosition: 0,
     result: 0,
     curretTime: 60,
-  }
+  },
+  actions:{
+    timerId : setInterval(randomSquare,1000),//faz com que o enemy surja em um local aleatorio
+    countDownTimerId:setInterval(countDown,1000),//
+  },
 }
 
 function countDown(){
   state.values.curretTime --;
   state.view.timeLeft.textContent = state.values.curretTime;
   if(state.values.curretTime <= 0){
+    clearInterval(state.actions.countDownTimerId)
+    clearInterval(state.actions.timerId)
     alert("Fim de jogo! O seu placar final foi: "+ state.values.result)
   }
 }
 
-function moveEnemy(){
-    state.values.timerId = setInterval(randomSquare, state.values.gameVelocity)
+function playSound(audioName){
+  let audio = new Audio(`./src/audios/${audioName}.m4a`);
+  audio.volume = 0.1;
+  audio.play();
 }
 
 function randomSquare(){
@@ -51,6 +58,7 @@ function addListenerHitBox(){
         state.view.score.textContent = state.values.result;
         // impede que o usuario click infinitamente 
         state.values.hitPosition = null;
+        playSound("hit");
       }
     })
   })
@@ -58,7 +66,6 @@ function addListenerHitBox(){
 
 
 function initialize() {
-  moveEnemy();
   addListenerHitBox();
 }
 
