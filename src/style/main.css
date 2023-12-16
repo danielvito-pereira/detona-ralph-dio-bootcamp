@@ -32,10 +32,10 @@
   align-items: center;
   justify-content: center;
 }
-.container .panel .squere {
+.container .panel .square {
   height: 150px;
   width: 150px;
-  border-top: 1px solid #000000;
+  border: 1px solid #000000;
   background-color: rgb(0, 225, 255);
 }
 .container .panel .enemy {
